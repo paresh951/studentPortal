@@ -1,0 +1,197 @@
+<script>
+  var admin = [
+    ["nikul@gmail.com", "123"],
+    ["vijay@gmail.com", "1234"],
+  ];
+  var student = [];
+  var id = 1;
+  var can = "confirm";
+  var courses = ["Java", "JavaScript", "react"];
+  do {
+    var a = prompt("1.student\n2.Admin\n3.view\n4.Exit");
+    var mainflage = 0;
+    switch (a) {
+      case "1":
+        "student";
+        // alert("ur in student ");
+        do {
+          if (confirm("plz confirm with ok \nif you want to continue ")) {
+            do {
+              var nam = prompt("Please enter your name: ");
+
+              var num = prompt("Please enter your number: ");
+
+              var gender = prompt("Please Enter gender: ");
+              var pan = "pending";
+
+              var message =
+                "Which of these course do you want to inquiry about?\n";
+              for (var i = 0; i < courses.length; i++) {
+                message += i + 1 + "." + courses[i] + "\n";
+              }
+              var course = parseInt(prompt(message));
+              var dt = new Date();
+              var temp = [id++, nam, num, gender, courses[course - 1], pan, dt];
+
+              alert(
+                "Your enquiry has been successful. Our Admin Team will shortly get beck to you."
+              );
+              do {
+                var inquiry = parseInt(
+                  prompt("Do you want to do another inquiry?\n1.Yes\n2.no")
+                );
+                if (inquiry == 1) {
+                  var mass1 = "add another couse\n";
+                  for (var i = 0; i < courses.length; i++) {
+                    mass1 += i + 1 + "." + courses[i] + "\n";
+                  }
+                  var course = parseInt(prompt(mass1));
+                  temp.splice(5, 0, courses[course - 1]);
+
+                  temp = [...new Set(temp)];
+                } else if (inquiry == 2) {
+                  mainflage = 1;
+                  break;
+                }
+              } while (mainflage == 0);
+              {
+              }
+              student.push(temp);
+              alert(student);
+            } while (mainflage == 0);
+          } else {
+            alert("thank you !!");
+            mainflage = 1;
+          }
+        } while (mainflage == 0);
+        mainflage = 0;
+        break;
+
+      case "2":
+        "Admin";
+        // alert("ur in astudent ");
+        do {
+          mainflage = 10;
+          var em = prompt("HELLO ADMIN!!\nenter your email here");
+          for (let x = 0; x < admin.length; x++) {
+
+            if (em == admin[x][0]) {
+              mainflage = 11;
+              ++z;
+              do {
+                var nm = prompt("enter your password:");
+
+                // for (; z < admin[x][z].length; z++) {
+                if (nm == admin[x][1]) {
+                  mainflage = 88;
+                  alert("you are in admin ");
+                  do {
+                    var main = true;
+                    var v = prompt(
+                      "1. enquiry list \n2.confirm enquiry\n3.rejected enquiry\n4exit"
+                    );
+                    switch (v) {
+                      case "1":
+                        " enquiry list";
+                        var f = "";
+                        var student = [
+                          [1, 'vijay', 5646456, 'male', 'A,B,C', 'confirm'],
+                          [2, 'virin', 5646457, 'male', 'A,B,C', 'pending'],
+                          [3, 'raam', 5646459, 'male', 'A,B,C', 'rejected']
+                        ]
+                        for (let w = 0; w < student.length; w++) {
+                          if (student[w][5] == pan) {
+                            for (let e = 0; e < student[w].length; e++) {
+                              f = f + student[w][e] + " - ";
+                            }
+                          }
+                          f = f + "<br/>";
+                        }
+                        alert(f);
+
+                        main = true;
+                        break;
+
+                      case "2":
+                        "confirm enquiry";
+                        var idd = prompt("enetr id ");
+                        for (let a = 0; a < student.length; a++) {
+                          // for (let q = 0; q < student[a].length; q++) {
+                          //   if (student[a][q] == idd) {
+                          //     // student[a][(q, pan)] = can;
+                          //     alert(student);
+                          //   }
+                          // }
+                          if (student[a][0] == idd) {
+
+                            student[a][5] = can;
+                            break
+                          }
+                        }
+                        var f = '';
+                        for (let w = 0; w < student.length; w++) {
+                          if (student[w][5] == can) {
+                            for (let e = 0; e < student[w].length; e++) {
+                              f = f + student[w][e] + " - ";
+                            }
+                          }
+                          f = f + "<br/>";
+                        }
+                        main = true;
+                        break;
+
+                      case "3":
+                        "rejected enquiry";
+                        for (let w = 0; w < student.length; w++) {
+                          if (student[w][5] == "rejected") {
+                            for (let e = 0; e < student[w].length; e++) {
+                              f = f + student[w][e] + " - ";
+                            }
+                          }
+                          f = f + "<br/>";
+                        }
+                        main = true;
+                        break;
+
+                      case "4":
+                        "exit";
+                        main = false;
+                        mainflage = 0;
+                        break;
+                      default:
+                        alert("select any number between list ");
+                        break;
+                    }
+                  } while (main == true);
+                  break;
+                }
+                if ((mainFlag = 11)) {
+                  alert("your password not match");
+                }
+              } while (mainflage == 11);
+            }
+
+            if (mainflage == 10) {
+              alert("invalid - Email!!");
+              break;
+            }
+          }
+        } while (mainflage == 10);
+        break;
+      case "3":
+        "view";
+        mainflage = 0;
+        alert("ur in view student ");
+
+        break;
+      case "4":
+        "Exit";
+        mainflage = 1;
+        break;
+
+      default:
+        alert("please select any one from the list ");
+        break;
+    }
+  } while (mainflage == 0);
+</script>
